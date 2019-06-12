@@ -38,11 +38,19 @@ export const LoginContainer = styled.div`
       justify-content: center;
       background: #1ebe1e;
       color: #fff;
+      border: 1px solid transparent;
+
+      &:hover {
+        background: #fff;
+        color: #1ebe1e;
+        border: 1px solid #1ebe1e;
+        cursor: pointer;
+      }
     }
 
     span {
       font-size: 10px;
-      color: #ccc;
+      color: #aaa;
 
       a {
         color: #1ebe1e;
