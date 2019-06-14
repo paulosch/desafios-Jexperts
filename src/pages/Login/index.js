@@ -5,14 +5,14 @@ import { LoginContainer } from './styles'
 
 const Login = () => (
   <Fragment>
-    <GlobalStyle green />
+    <GlobalStyle blue />
     <LoginContainer>
       <div>
         <input type="input" placeholder="username" />
         <input type="password" placeholder="password" />
         <button>LOGIN</button>
         <span>
-          No registered? <a href="/users">Create an account</a>
+          No registered? <a href="/userForm">Create an account</a>
         </span>
       </div>
     </LoginContainer>

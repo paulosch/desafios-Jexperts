@@ -1,16 +1,23 @@
 import React from 'react'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
-// import { Container } from './styles';
+import { HeaderContainer, Logout } from './styles'
 
-const Header = ({ title }) => (
-  <Container>
-    <Row>
-      <Col col={12}>
-        <h2>{title}</h2>
-      </Col>
-    </Row>
-  </Container>
+const Header = ({ user }) => (
+  <HeaderContainer>
+    <Container>
+      <Row>
+        <Col col={12} md={6}>
+          <p>Welcome {user.firstName}!</p>
+        </Col>
+        <Col col={12} md={6}>
+          <Logout>
+            <a href="">Logout</a>
+          </Logout>
+        </Col>
+      </Row>
+    </Container>
+  </HeaderContainer>
 )
 
 export default Header

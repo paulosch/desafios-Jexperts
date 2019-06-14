@@ -29,8 +29,8 @@ export const LoginContainer = styled.div`
       background: #eee;
       font-size: 13px;
 
-      &:hover {
-        color: #fff;
+      &::placeholder {
+        opacity: 0.5;
       }
     }
 

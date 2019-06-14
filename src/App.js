@@ -1,16 +1,17 @@
 import React from 'react'
-
+import { Provider } from 'react-redux'
 import { BaseCSS } from 'styled-bootstrap-grid'
-import { Wrapper } from './styles/Components'
 
+import './config/reactotron'
 import Routes from './routes'
+import store from './store'
 
 function App() {
   return (
-    <Wrapper>
+    <Provider store={store}>
       <BaseCSS />
       <Routes />
-    </Wrapper>
+    </Provider>
   )
 }
 

@@ -15,9 +15,10 @@ html, body, #root {
 body{
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
-  background: ${props => (props.green ? '#15de15' : '#181818')};
+  background: ${props =>
+    props.blue ? 'rgba(36, 123, 160, 1)' : 'rgba(112, 193, 179, 1)'};
   font-family: 'Montserrat', sans-serif;
-  color: #fff;
+  color: #FFF;
 }
 `
 
