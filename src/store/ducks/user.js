@@ -17,7 +17,8 @@ const INITIAL_STATE = {
     email: '',
     login: '',
     password: '',
-    passwordConfirmation: ''
+    passwordConfirmation: '',
+    token: null
   },
   loading: false,
   logged: false,
