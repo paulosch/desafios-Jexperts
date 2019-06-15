@@ -1,16 +1,19 @@
-import React, { Fragment } from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
+import { ConnectedRouter } from 'connected-react-router'
 
 import Login from '../pages/Login'
-import Form from '../pages/User/Form'
+import UserForm from '../pages/User/UserForm'
+
+import history from './history'
 
 const Routes = () => (
-  <BrowserRouter>
+  <ConnectedRouter history={history}>
     <Switch>
       <Route exact path="/" component={Login} />
-      <Route path="/userForm" component={Form} />
+      <Route path="/userForm" component={UserForm} />
     </Switch>
-  </BrowserRouter>
+  </ConnectedRouter>
 )
 
 export default Routes

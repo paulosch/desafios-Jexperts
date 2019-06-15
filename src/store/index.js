@@ -1,10 +1,13 @@
 import { createStore, compose, applyMiddleware } from 'redux'
+import { connectRouter, routerMiddleware } from 'connected-react-router'
 import createSagaMiddleware from 'redux-saga'
+
+import history from '../routes/history'
 
 import reducers from './ducks'
 import sagas from './sagas'
 
-const middlewares = []
+const middlewares = [routerMiddleware(history)]
 
 const sagaMonitor =
   process.env.NODE_ENV === 'development'
@@ -23,7 +26,7 @@ const composer =
       )
     : compose(applyMiddleware(...middlewares))
 
-const store = createStore(reducers, composer)
+const store = createStore(connectRouter(history)(reducers), composer)
 
 sagaMiddleware.run(sagas)
 

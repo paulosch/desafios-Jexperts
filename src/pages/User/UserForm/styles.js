@@ -2,10 +2,6 @@ import styled from 'styled-components'
 
 export const FormContainer = styled.div`
   display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
   padding: 30px;
 
   > form {
@@ -25,6 +21,15 @@ export const FormContainer = styled.div`
       align-items: center;
       padding: 15px 25px;
       margin-bottom: 10px;
+      font-size: 13px;
+
+      &::placeholder {
+        opacity: 0.5;
+      }
+    }
+
+    input {
+      background: #eee;
     }
 
     span {
@@ -49,25 +54,30 @@ export const Divisor = styled.span`
   border-bottom: 1px solid #a9aea9;
   margin: 15px 0;
 `
-export const Input = styled.input`
-  background: #eee;
-  font-size: 13px;
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: center;
 
-  &::placeholder {
-    opacity: 0.5;
+  > div {
+    padding: 15px 25px;
   }
 `
 
-export const Button = styled.input`
+export const Button = styled.button`
+  width: 250px;
   justify-content: center;
-  background: #1ebe1e;
+  background: ${props => (props.danger ? '#cf1212' : '#1ebe1e')};
   color: #fff;
-  border: 1px solid transparent;
 
   &:hover {
-    background: #fff;
-    color: #1ebe1e;
-    border: 1px solid #1ebe1e;
+    background: ${props => (props.danger ? '#611212' : '#09952c')};
+    color: ${props => (props.danger ? '#cf1212' : '#1ebe1e')};
     cursor: pointer;
   }
+`
+
+export const Error = styled.div`
+  display: flex;
+  color: red;
+  justify-content: center;
 `

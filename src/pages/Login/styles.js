@@ -7,7 +7,7 @@ export const LoginContainer = styled.div`
   justify-content: center;
   height: 100%;
 
-  > div {
+  > form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,4 +57,11 @@ export const LoginContainer = styled.div`
       }
     }
   }
+`
+export const Error = styled.div`
+  display: flex;
+  color: red;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 13px;
 `
