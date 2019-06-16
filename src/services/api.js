@@ -32,11 +32,10 @@ export function logout() {
 
 export async function getUsers(userToken) {
   let accept = validateToken(userToken)
-
   if (!accept) throw new Error('Invalid Token')
 
   const response = await localStorage.getItem(KEYS.USERS)
-  const users = response ? JSON.parse(response) : []
+  let users = !!response ? JSON.parse(response) : []
 
   return users
 }

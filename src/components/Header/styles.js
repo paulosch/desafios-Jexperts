@@ -11,9 +11,13 @@ export const Logout = styled.div`
   display: flex;
   justify-content: flex-end;
 
-  a {
+  a,
+  button {
     color: #eee;
     cursor: pointer;
     font-size: 13px;
+    background: none;
+    border: none;
+    padding: 0;
   }
 `

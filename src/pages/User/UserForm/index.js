@@ -77,7 +77,7 @@ export default function UserForm() {
             </Row>
 
             <Row>
-              <Col col={6}>
+              <Col col={12} md={6}>
                 <Control.text
                   model=".data.login"
                   placeholder="Login"

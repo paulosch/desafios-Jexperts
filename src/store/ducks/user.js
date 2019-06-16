@@ -21,7 +21,6 @@ const INITIAL_STATE = {
     token: null
   },
   loading: false,
-  logged: false,
   error: null
 }
 
@@ -48,7 +47,7 @@ export default function user(state = INITIAL_STATE, action) {
     case Types.DELETE_REQUEST:
       return { ...state, loading: true }
     case Types.DELETE_SUCCESS:
-      return { ...state, loading: false, logged: false, data: {} }
+      return { ...state, loading: false, data: {} }
     default:
       return state
   }

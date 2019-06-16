@@ -1,11 +1,18 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+
+import { Creators as LoginCreators } from '../../store/ducks/auth'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid'
 import { HeaderContainer, Logout } from './styles'
 
 export default function Header() {
   const { data, logged } = useSelector(state => state.user)
+  const dispatch = useDispatch()
+
+  function logout() {
+    dispatch(LoginCreators.logoutRequest())
+  }
 
   return (
     <HeaderContainer>
@@ -16,7 +23,11 @@ export default function Header() {
           </Col>
           <Col col={12} md={6}>
             <Logout>
-              <a href={'/'}>{logged ? 'Logout' : 'Login'}</a>
+              {logged ? (
+                <button onClick={logout}>Logout</button>
+              ) : (
+                <a href={'/'}>Login</a>
+              )}
             </Logout>
           </Col>
         </Row>
