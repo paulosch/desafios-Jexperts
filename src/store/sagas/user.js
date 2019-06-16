@@ -6,13 +6,14 @@ import { Creators as AuthActions } from '../ducks/auth'
 
 import { getUsers, setUsers } from '../../services/api'
 
-const getState = state => state.user
+const getAuth = state => state.auth
+const getUser = state => state.user
 
 export function* saveUser(action) {
   try {
     let users = []
     const { data } = action.payload
-    let { logged } = yield select(getState)
+    let { logged } = yield select(getAuth)
 
     const serverUsers = yield call(getUsers, data.password)
 
@@ -22,7 +23,7 @@ export function* saveUser(action) {
     if (logged) {
       users = serverUsers.filter(user => user.login !== data.login)
     } else {
-      const isDuplicated = users.find(user => user.login === data.login)
+      const isDuplicated = serverUsers.find(user => user.login === data.login)
       if (isDuplicated) throw new Error('This login already exists')
 
       users = serverUsers
@@ -40,15 +41,16 @@ export function* saveUser(action) {
 
 export function* deleteUser() {
   try {
-    let { data } = yield select(getState)
+    let { data } = yield select(getUser)
 
     let users = yield call(getUsers, data.password)
 
     users = users.filter(user => user.login !== data.login)
 
-    yield put(AuthActions.logoutRequest())
-    yield call(setUsers, users)
+    yield call(setUsers, data.token, users)
     yield put(UserActions.deleteUserSuccess())
+    yield put(AuthActions.logoutRequest())
+
     yield put(push('/'))
   } catch (err) {
     yield put(UserActions.putUserFailure(`${err}`))

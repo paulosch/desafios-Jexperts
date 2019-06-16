@@ -35,14 +35,13 @@ export async function getUsers(userToken) {
   if (!accept) throw new Error('Invalid Token')
 
   const response = await localStorage.getItem(KEYS.USERS)
-  let users = !!response ? JSON.parse(response) : []
+  let users = !!response && response !== 'undefined' ? JSON.parse(response) : []
 
   return users
 }
 
 export async function setUsers(userToken, users) {
   let accept = validateToken(userToken)
-
   if (!accept) throw new Error('Invalid Token')
 
   await localStorage.setItem(KEYS.USERS, JSON.stringify(users))
